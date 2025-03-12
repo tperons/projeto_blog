@@ -7,17 +7,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
-# SECRET_KEY = 'django-insecure-gr*ld)^!%kfaj&!5@1y37tt_1jii^rz+#_k#hi_(13r4b@9j69'
 SECRET_KEY = os.getenv('SECRET_KEY', 'change-me')
 
 DEBUG = bool(int(os.getenv('DEBUG', 0)))
 
-ALLOWED_HOSTS = [
-    h.strip() for h in os.getenv('ALLOWED_HOSTS', '').split(',')
-    if h.strip()
-]
-
+ALLOWED_HOSTS = ['*']
 
 
 INSTALLED_APPS = [
@@ -53,6 +47,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blog.context_processors.site_setup',
             ],
         },
     },
@@ -61,14 +56,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project.wsgi.application'
 
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -87,7 +80,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -95,7 +87,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 
 STATIC_URL = '/static/'
