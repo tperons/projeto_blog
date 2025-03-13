@@ -62,7 +62,7 @@ class SiteSetup(models.Model):
         verbose_name_plural = 'Setup'
 
     title = models.CharField(max_length=64, verbose_name='Título')
-    description = models.CharField(max_length=255, verbose_name='Descrição')
+    description = models.CharField(blank=True, max_length=255, verbose_name='Descrição')
     show_header = models.BooleanField(default=True, verbose_name='Mostrar header')
     show_search = models.BooleanField(default=True, verbose_name='Mostrar busca')
     show_menu = models.BooleanField(default=True, verbose_name='Mostrar menu')
