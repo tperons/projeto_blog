@@ -3,6 +3,9 @@
 # Adicionando o agente
 eval "$(ssh-agent -s)" && ssh-add ~/.ssh/tperons_rsa
 
+# Adicionando os requirements
+pip freeze > requirements.txt
+
 # Solicita uma mensagem de commit
 echo "Digite a mensagem do commit:"
 read commit_message
