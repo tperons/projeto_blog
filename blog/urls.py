@@ -1,14 +1,14 @@
 from django.urls import path
-from . import views
+from blog.views import *
 
 app_name = 'blog'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('page/<slug:slug>/', views.page, name='page'),
-    path('post/<slug:slug>/', views.post, name='post'),
-    path('author/<int:author_pk>/', views.author, name='author'),
-    path('category/<slug:slug>/', views.category, name='category'),
-    path('tag/<slug:slug>/', views.tag, name='tag'),
-    path('search/', views.search, name='search'),
+    path('', Index.as_view(), name='index'),
+    path('page/<slug:slug>/', Page.as_view(), name='page'),
+    path('post/<slug:slug>/', Posts.as_view(), name='post'),
+    path('author/<int:author_pk>/', Author.as_view(), name='author'),
+    path('category/<slug:slug>/', Category.as_view(), name='category'),
+    path('tag/<slug:slug>/', Tag.as_view(), name='tag'),
+    path('search/', Search.as_view(), name='search'),
 ]

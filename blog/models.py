@@ -15,8 +15,6 @@ class PostManager(models.Manager):
         return self.filter(is_published=True).order_by('-pk')
 
 
-
-
 # Model para redimenssionar as imagens do Post
 class PostAttachment(AbstractAttachment):
     def save(self, *args, **kwargs):
@@ -36,8 +34,6 @@ class PostAttachment(AbstractAttachment):
         return super_save
 
 
-
-
 # Model para configurações do site
 class MenuLink(models.Model):
     class Meta:
@@ -52,8 +48,6 @@ class MenuLink(models.Model):
     def __str__(self):
         return self.text
     
-
-
 
 # Model para configuração do site
 class SiteSetup(models.Model):
@@ -87,8 +81,6 @@ class SiteSetup(models.Model):
         return self.title
     
 
-
-
 # Model para criação das Tags
 class Tag(models.Model):
     class Meta:
@@ -107,8 +99,6 @@ class Tag(models.Model):
         return self.name
     
 
-
-
 # Model para criação das categorias
 class Category(models.Model):
     class Meta:
@@ -126,8 +116,6 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-
-
 
 # Model para criação de Page
 class Page(models.Model):
@@ -153,11 +141,6 @@ class Page(models.Model):
     def __str__(self):
         return self.title
     
-
-
-
-    
-
 
 # Model para Post
 class Post(models.Model):

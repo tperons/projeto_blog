@@ -3,27 +3,9 @@
         <div class="section-gap">
             <div class="center">
 
-                {% if site_setup.show_menu %}
-                    <nav class="menu">
-                        <ul class="menu-items">
-                            
-                            {% for link in site_setup.menulink_set.all %}
-                            <li class="menu-item">
-                                
-                                {% if link.new_tab %}
-                                    <a target="_blank" class="menu-link" href="{{ link.url_of_path }}"> {{ link.text }} </a>
-                                {% else %}
-                                    <a class="menu-link" href="{{ link.url_of_path }}"> {{ link.text }} </a>
-                                {% endif %}
-                                
-                            </li>
-                            {% endfor %}
-                            
-                        </ul>
-                    </nav>
-                {% endif %}
+                
 
-                <a href="#"> © {% now 'Y' %} {{ site_setup.title }} - Todos os direitos reservados. </a>
+                <a href="/"> © {% now 'Y' %} {{ site_setup.title }} do Peron - Todos os direitos reservados. </a>
             </div>
         </div>
     </div>

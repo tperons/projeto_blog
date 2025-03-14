@@ -2,10 +2,12 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR.parent / '.env', override=True)
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'change-me')
 
@@ -23,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'django_summernote',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -33,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -101,6 +105,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AXES_ANABLED = True
+AXES_FAILURE_LIMIT = 6
+AXES_COOLOFF_TIME = 1
+AXES_RESET_ON_SUCCESS = True
+
 
 SUMMERNOTE_CONFIG = {
     'summernote': {

@@ -9,6 +9,8 @@
                 <p class="blog-description pb-base center"> {{ site_setup.description }} </p>
             {% endif %}
 
+            
+
             {% if site_setup.show_search %}
                 <div class="search pb-base center">
                     <form class="search-form" action="{% url "blog:search" %}" method="get">
@@ -22,6 +24,28 @@
                     </form>
                 </div>
             {% endif %}
+
+            {% if site_setup.show_menu %}
+                <nav class="menu">
+                    <ul class="menu-items">
+                        
+                        {% for link in site_setup.menulink_set.all %}
+                            <li class="menu-item">
+                                
+                                {% if link.new_tab %}
+                                    <a target="_blank" class="menu-link" href="{{ link.url_or_path }}"> {{ link.text }} </a>
+                                {% else %}
+                                    <a class="menu-link" href="{{ link.url_or_path }}"> {{ link.text }} </a>
+                                {% endif %}
+                                
+                            </li>
+                        {% endfor %}
+                        
+                    </ul>
+                </nav>
+            {% endif %}
+
+            
 
             
 
