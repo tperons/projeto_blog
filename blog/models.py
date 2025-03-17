@@ -42,7 +42,7 @@ class MenuLink(models.Model):
 
     text = models.CharField(max_length=50, verbose_name='Texto')
     url_or_path = models.CharField(max_length=2048, verbose_name='Link')
-    new_tab = models.BooleanField(default=False)
+    new_tab = models.BooleanField(default=False, verbose_name='Nova aba?')
     site_setup = models.ForeignKey('SiteSetup', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     def __str__(self):
